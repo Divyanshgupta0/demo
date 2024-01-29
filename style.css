@@ -46,7 +46,7 @@ main{
     color: white;
     height: 90vh;
     position: relative;
-    background: rgba(0,0,0,0.2) url("/Images/banner.jpg");
+    background: rgba(0,0,0,0.2) url("../Images/banner.jpg");
     background-blend-mode: multiply;
     background-position: center;
     background-size: cover;
