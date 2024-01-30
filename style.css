@@ -1,11 +1,15 @@
+@font-face {
+  font-family: roboto;
+  src: url(fonts/Roboto/Roboto-Regular.ttf);
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: roboto;
 }
 .container {
-  width: 1200px;
+  
   margin: auto;
 }
 header {
@@ -17,114 +21,220 @@ header {
 }
 nav {
   display: flex;
+  flex-wrap: wrap;
 }
-nav a{
-    text-decoration: none;
-    font-size: 18px;
-    margin-right: 10px;
-    color: rgb(83, 88, 120);
+.hammburger{
+  display: none;
+}
+nav a {
+  text-decoration: none;
+  font-size: 18px;
+  margin-right: 10px;
+  color: rgb(83, 88, 120);
 }
 nav select {
-    font-size: 15px;
-    color: rgb(83, 88, 120);
+  font-size: 15px;
+  color: rgb(83, 88, 120);
   background-color: transparent;
   border: none;
   margin-right: 10px;
 }
-nav input{
-    width: 70px;
-    padding: 0 10px;
-    border: none;
-    outline: none;
-    border-left: 2px solid rgb(83, 88, 120);
-    font-size: 15px;
+nav input {
+  width: 70px;
+  padding: 0 10px;
+  border: none;
+  outline: none;
+  border-left: 2px solid rgb(83, 88, 120);
+  font-size: 15px;
 }
 nav img {
-    height: 16px;
+  height: 16px;
 }
-main{
+main {
+  color: white;
+  position: relative;
+  background: rgba(0, 0, 0, 0.2) url("Images/banner.jpg");
+  background-blend-mode: multiply;
+  background-position: center;
+  background-size: cover;
+}
+main .sidediv {
+  height: 100%;
+  width: 500px;
+  position: absolute;
+  /* z-index: 0; */
+  background-color: rgb(183, 71, 70);
+}
+main .sidediv img {
+  width: 580px;
+  height: 60%;
+  opacity: 0.5;
+}
+main .content {
+  padding: 50px 0;
+  position: relative;
+  /* background-color: aqua; */
+  h1 {
+    font-size: 50px;
+    padding-top: 60px;
+  }
+  button {
+    margin: 20px 0;
+    border: 2px solid white;
     color: white;
-    height: 90vh;
-    position: relative;
-    background: rgba(0,0,0,0.2) url("/Images/banner.jpg");
-    background-blend-mode: multiply;
-    background-position: center;
-    background-size: cover;
+    background-color: transparent;
+    padding: 10px 25px;
+    width: fit-content;
+  }
+  .slides {
+    display: flex;
+    gap: 10px;
+  }
+  .slide {
+    height: 4px;
+    width: 60px;
+    border: 1px solid white;
+  }
+  .slide:hover {
+    background-color: white;
+  }
+  .box {
+    margin-top: 80px;
+    /* width: 1200px; */
+    display: flex;
+    flex-wrap: wrap;
+    padding: 15px;
+    /* margin-bottom: 300px; */
+    background-color: rgba(0, 0, 0, 0.2);
+    align-items: center;
+    justify-content: space-between;
+    backdrop-filter: blur(5px);
+    /* background-color:aqua; */
+  }
+  .item {
+    padding: 0 15px;
+    margin: 15px 0;
+    text-align: center;
+    h2 {
+      font-size: 16px;
+    }
+    p {
+      font-weight: 100;
+      font-size: 12px;
+    }
+    border-right: 1px solid white;
+    button {
+      margin: 0;
+    }
+  }
+  .item:nth-last-child(-n + 2) {
+    border: none;
+  }
+  #first {
+    display: flex;
+    height: fit-content;
+    /* padding: 0; */
+  }
 }
-main .sidediv{
-    height: 100%;
-    width: 500px;
-    position:absolute;
-    /* z-index: 0; */
-    background-color: rgb(183, 71, 70);
+
+
+
+@media only screen and (max-width:576px) {
+    .container{
+        width: 100%;
+        padding: 0 10px;
+    }
+    main .sidediv{
+      width: 40%;
+    } 
+    main .sidediv img{
+      width: 110%;
+    }   
 }
-main .sidediv img{
-    width: 580px;
-    height: 60%;
-    opacity: 0.5 ;
+@media only screen and (min-width:576px) {
+    .container{
+        width: 540px;
+    }
+    main .sidediv{
+      width:240px ;
+    }
+    main .sidediv img{
+      width: 280px;
+    }
+    
+
 }
-main .content{
-    /* padding: 50px 0; */
-    position: relative;
-    /* background-color: aqua; */
-    h1{
-        font-size: 50px;
-        padding-top: 60px ;
+@media only screen and (min-width:768px){
+    .container{
+        width: 720px;
     }
-    button{
-        margin: 20px 0;
-        border: 2px solid white;
-        color: white;
-        background-color: transparent;
-        padding: 10px 25px;
-        width: fit-content;
+    main .sidediv{
+      width: 320px;
     }
-    .slides{
-        display: flex;
-        gap: 10px;
+    main .sidediv img{
+      width: 370px;
     }
-    .slide{
-        height: 4px ;
-        width: 60px;
-        border: 1px solid white;
+}
+@media only screen and (max-width:768px){
+  .hammburger{
+    display: block;
+    margin: auto;
+  }
+  nav{
+    display: none;
+    flex-direction: column;
+    background-color: rgba(255,255,255);
+    box-shadow: 0 0 10px grey;
+    position: absolute;
+    z-index: 10;
+    transform: translateX(-70%);
+
+  }
+
+}
+@media only screen and (min-width:992px) {
+    .container{
+        width: 960px;
     }
-     .slide:hover{
-        background-color: white;
+    main .sidediv{
+      width:410px ;
     }
-    .box{
-        margin-top: 80px;
-        /* width: 1200px; */
-        display: flex;
-        padding: 15px;
-        background-color: rgba(0,0,0,0.2);
-        align-items: center;
-        justify-content: space-between;
-        backdrop-filter: blur(5px);
-        /* background-color:aqua; */
+    main .sidediv img{
+      width: 480px;
     }
-    .item{
-        padding:0  15px;
-        margin: 15px 0;
-        text-align: center;
-        h2{
-            font-size: 16px;
-        }
-        p{
-            font-weight: 100;
-            font-size: 12px;
-        }
-        border-right: 1px solid white;
-        button{
-            margin: 0;
-        }
+    .hammburger{
+      display: none;
     }
-    .item:nth-last-child(-n+2){
-        border: none;
+    nav{
+      flex-direction: row;
+      justify-content: space-between;
+      background-color:transparent ;
+      box-shadow:none;
     }
-    #first{
-        display: flex; 
-        height: fit-content;
-        /* padding: 0; */
+
+}
+@media only screen and (min-width:1200px) {
+    .container{
+        width: 1140px;
+    }
+    main .sidediv{
+      width: 500px;
+    }
+    main .sidediv img{
+      width: 580px;
+    }
+
+}
+
+@media only screen and (min-width:1400px) {
+    .container{
+        width: 1320px;
+    }
+    main .sidediv{
+      width: 580px;
+    }
+    main .sidediv img{
+      width: 680px;
     }
 
 }
